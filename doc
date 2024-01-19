@@ -1,0 +1,24 @@
+1. fast api modülünü uygulmaya indiriyoruz
+    pip install fastapi[all]
+2. app adında bir directory açıyoruz.
+3. app => settings.py dosyası açıyoruz. Bu dosya içerisinde SQL ile iletişime geçmek için connection string yazılır ve onun ayarlamaları yapılır.
+4. Bu projede ORM aracı olarak sql alchemy kullanılacak bu sebepten ötürü ilgili modül yüklenilecek.
+    pip install sqlalchemy
+5. settings.py dosyasına aşağıda ki kodlar yazılır.
+6. model.py dosyası yaratılır.
+7. main.py dosyası yaratılır. Django'da ki manage.py ile aynı vazifeyi görür. Projemizi ayağı kaldırmaya yarar.
+8. migration işlemi yapılır.
+    uvicorn main:app --reload
+9. app => routers adında bir python pacage açıyoruz.
+10. category.py dosyası açıyoruz.
+    from fastapi import APIRouter
+    router = APIRouter()
+11. main.py dosyası içerisine aşağıda ki kodu ekleyiniz.
+    app.include_router(category.router)
+12. CRUD operasyonlarını yürütecek fonksiyonlar tek tek yazılır ve test edilir.
+13. routers => auth.py dosyası eklenir.
+14. main.py dosyası içerisine aşağıda ki kodu ekleyiniz.
+    app.include_router(auth.router)
+15. routers => user.py dosyası açılır.
+16. main.py dosyası içerisine aşağıda ki kodu ekleyiniz.
+    app.include_router(user.router)
